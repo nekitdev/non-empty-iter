@@ -22,7 +22,7 @@ Or by directly specifying it in the configuration like so:
 
 ```toml
 [dependencies]
-non-empty-iter = "0.1.0"
+non-empty-iter = "0.2.0"
 ```
 
 Alternatively, you can add it directly from the source:

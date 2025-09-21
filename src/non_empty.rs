@@ -242,17 +242,26 @@ pub unsafe trait NonEmptyIterator: IntoIterator + Sized {
         self.into_iter().unzip()
     }
 
+    /// Equivalent to [`collect`] on [`Iterator`].
+    ///
+    /// See also [`collect_non_empty`].
+    ///
+    /// [`collect`]: Iterator::collect
+    /// [`collect_non_empty`]: NonEmptyIterator::collect_non_empty
+    fn collect<C: FromIterator<Self::Item>>(self) -> C {
+        self.into_iter().collect()
+    }
+
     /// Collects the items of the non-empty iterator into the collection.
     ///
-    /// See also [`collect`] on [`Iterator`].
+    /// See also [`collect`].
     ///
     /// # Difference from [`Iterator`]
     ///
-    /// Note that the collection is required to be [`FromNonEmptyIterator`],
-    /// though anything that is [`FromIterator`] is also [`FromNonEmptyIterator`].
+    /// Note that the collection is required to be [`FromNonEmptyIterator`].
     ///
-    /// [`collect`]: Iterator::collect
-    fn collect<C: FromNonEmptyIterator<Self::Item>>(self) -> C {
+    /// [`collect`]: NonEmptyIterator::collect
+    fn collect_non_empty<C: FromNonEmptyIterator<Self::Item>>(self) -> C {
         C::from_non_empty_iter(self)
     }
 
@@ -473,6 +482,7 @@ pub unsafe trait NonEmptyIterator: IntoIterator + Sized {
     /// via [`consume`].
     ///
     /// [`nth`]: Iterator::nth
+    /// [`consume`]: NonEmptyIterator::consume
     fn nth(self, n: Size) -> Option<Self::Item> {
         self.into_iter().nth(n.get())
     }
@@ -711,6 +721,8 @@ pub unsafe trait NonEmptyIterator: IntoIterator + Sized {
     }
 
     /// Equivalent to [`ge`] on [`Iterator`].
+    ///
+    /// [`ge`]: Iterator::ge
     fn ge<I: IntoIterator>(self, other: I) -> bool
     where
         Self::Item: PartialOrd<I::Item>,
@@ -812,17 +824,10 @@ pub unsafe trait NonEmptyIterator: IntoIterator + Sized {
 
 /// Represents types that can be created from non-empty iterators.
 ///
-/// This is similar to [`FromIterator`], but specifically for non-empty iterators,
-/// though anything that is [`FromIterator`] is also [`FromNonEmptyIterator`].
+/// This is similar to [`FromIterator`], but specifically for non-empty iterators.
 pub trait FromNonEmptyIterator<T>: Sized {
     /// Creates [`Self`] from the provided non-empty iterator.
     fn from_non_empty_iter<I: IntoNonEmptyIterator<Item = T>>(iterable: I) -> Self;
-}
-
-impl<T, C: FromIterator<T>> FromNonEmptyIterator<T> for C {
-    fn from_non_empty_iter<I: IntoNonEmptyIterator<Item = T>>(iterable: I) -> Self {
-        iterable.into_non_empty_iter().into_iter().collect()
-    }
 }
 
 /// Represents types that can be converted into non-empty iterators.
