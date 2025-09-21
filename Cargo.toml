@@ -1,0 +1,24 @@
+[package]
+name = "non-empty-iter"
+version = "0.1.0"
+authors = ["nekitdev <nekit@nekit.dev>"]
+edition = "2024"
+description = "Non-empty iterators."
+documentation = "https://docs.rs/non-empty-iter"
+readme = "README.md"
+repository = "https://github.com/nekitdev/non-empty-iter"
+license = "MIT"
+keywords = ["non-empty", "iter", "iterator"]
+categories = ["no-std", "no-std::no-alloc", "rust-patterns"]
+
+[dependencies.non-zero-size]
+version = "0.1.0"
+
+[features]
+default = ["std"]
+std = []
+alloc = []
+
+[package.metadata.docs.rs]
+features = []
+rustdoc-args = ["--cfg", "docsrs"]
