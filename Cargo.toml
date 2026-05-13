@@ -1,8 +1,9 @@
 [package]
 name = "non-empty-iter"
-version = "0.2.0"
+version = "0.3.0"
 authors = ["nekitdev <nekit@nekit.dev>"]
 edition = "2024"
+rust-version = "1.95"
 description = "Non-empty iterators."
 documentation = "https://docs.rs/non-empty-iter"
 readme = "README.md"
