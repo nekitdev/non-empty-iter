@@ -2,6 +2,12 @@
 
 <!-- changelogging: start -->
 
+## [0.3.1](https://github.com/nekitdev/non-empty-iter/tree/v0.3.1) (2026-05-14)
+
+### Internal
+
+- Update `doc_auto_cfg -> doc_cfg` for [`docs.rs`](https://docs.rs/).
+
 ## [0.3.0](https://github.com/nekitdev/non-empty-iter/tree/v0.3.0) (2026-05-13)
 
 ### Changes
