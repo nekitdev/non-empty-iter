@@ -13,7 +13,7 @@ keywords = ["non-empty", "iter", "iterator"]
 categories = ["no-std", "no-std::no-alloc", "rust-patterns"]
 
 [dependencies.non-zero-size]
-version = "0.1.0"
+version = "0.2.0"
 
 [features]
 default = ["std"]
