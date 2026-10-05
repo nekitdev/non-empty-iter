@@ -6,7 +6,7 @@
 
 ### Internal
 
-- Update `doc_auto_cfg -> doc_cfg` for [`docs.rs`](https://docs.rs/).
+- Updated `doc_auto_cfg -> doc_cfg` for [`docs.rs`](https://docs.rs/).
 
 ## [0.3.0](https://github.com/nekitdev/non-empty-iter/tree/v0.3.0) (2026-05-13)
 
@@ -18,7 +18,7 @@
 
 ### Changes
 
-- Resolve possible conflicting implementations of `FromNonEmptyIterator<T>`
+- Resolved possible conflicting implementations of `FromNonEmptyIterator<T>`
   by removing the generic implementation for all `C: FromIterator<T>` types.
 
 ## [0.1.0](https://github.com/nekitdev/non-empty-iter/tree/v0.1.0) (2025-09-21)
