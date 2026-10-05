@@ -2,6 +2,14 @@
 
 <!-- changelogging: start -->
 
+## [0.4.0](https://github.com/nekitdev/non-empty-iter/tree/v0.4.0) (2026-10-05)
+
+### Features
+
+- Added `Consumed<I>`, equivalent to `(I::Item, I::IntoIter)` for `I: IntoIterator`.
+
+- Added `into_peek` to `Peeked<I>`, which consumes `Self` and returns the peeked `I::Item`.
+
 ## [0.3.1](https://github.com/nekitdev/non-empty-iter/tree/v0.3.1) (2026-05-14)
 
 ### Internal
