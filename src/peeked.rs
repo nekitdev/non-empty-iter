@@ -33,6 +33,11 @@ impl<I: Iterator> Peeked<I> {
         &mut self.item
     }
 
+    /// Returns the peeked item, consuming [`Self`].
+    pub fn into_peek(self) -> I::Item {
+        self.item
+    }
+
     /// Returns the peeked item and the underlying iterator.
     pub fn get(self) -> (I::Item, I) {
         (self.item, self.rest)

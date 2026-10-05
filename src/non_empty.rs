@@ -8,9 +8,9 @@ use core::{
 use non_zero_size::Size;
 
 use crate::{
-    adapter::NonEmptyAdapter, chain::Chain, cloned::Cloned, copied::Copied, cycle::Cycle,
-    enumerate::Enumerate, flat_map::FlatMap, flatten::Flatten, fuse::Fuse, inspect::Inspect,
-    map::Map, peeked::Peeked, rev::Rev, step_by::StepBy, take::Take, zip::Zip,
+    adapter::NonEmptyAdapter, chain::Chain, cloned::Cloned, consumed::Consumed, copied::Copied,
+    cycle::Cycle, enumerate::Enumerate, flat_map::FlatMap, flatten::Flatten, fuse::Fuse,
+    inspect::Inspect, map::Map, peeked::Peeked, rev::Rev, step_by::StepBy, take::Take, zip::Zip,
 };
 
 /// Represents [`Iterator`] that is guaranteed to be non-empty
@@ -35,8 +35,12 @@ use crate::{
 pub unsafe trait NonEmptyIterator: IntoIterator + Sized {
     /// Consumes the non-empty iterator, returning the next item
     /// along with the possibly empty iterator.
-    #[must_use]
-    fn consume(self) -> (Self::Item, Self::IntoIter) {
+    ///
+    /// See also [`peeked`], which calls [`consume`] and wraps the output.
+    ///
+    /// [`peeked`]: Self::peeked
+    /// [`consume`]: Self::consume
+    fn consume(self) -> Consumed<Self> {
         let mut iterator = self.into_iter();
 
         // SAFETY: the implementor guarantees the iterator is non-empty

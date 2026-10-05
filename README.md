@@ -6,7 +6,7 @@
 [![Documentation][Documentation Badge]][Documentation]
 [![Test][Test Badge]][Actions]
 
-> *Non-empty iterators.*
+> _Non-empty iterators._
 
 ## Installation
 
@@ -22,7 +22,7 @@ Or by directly specifying it in the configuration like so:
 
 ```toml
 [dependencies]
-non-empty-iter = "0.3.1"
+non-empty-iter = "0.4.0"
 ```
 
 Alternatively, you can add it directly from the source:
@@ -58,21 +58,15 @@ If you are interested in contributing to `non-empty-iter`, make sure to take a l
 `non-empty-iter` is licensed under the MIT License terms. See [License][License] for details.
 
 [Email]: mailto:support@nekit.dev
-
 [Discord]: https://nekit.dev/chat
-
 [Actions]: https://github.com/nekitdev/non-empty-iter/actions
-
 [Changelog]: https://github.com/nekitdev/non-empty-iter/blob/main/CHANGELOG.md
 [Code of Conduct]: https://github.com/nekitdev/non-empty-iter/blob/main/CODE_OF_CONDUCT.md
 [Contributing Guide]: https://github.com/nekitdev/non-empty-iter/blob/main/CONTRIBUTING.md
 [Security]: https://github.com/nekitdev/non-empty-iter/blob/main/SECURITY.md
-
 [License]: https://github.com/nekitdev/non-empty-iter/blob/main/LICENSE
-
 [Crate]: https://crates.io/crates/non-empty-iter
 [Documentation]: https://docs.rs/non-empty-iter
-
 [License Badge]: https://img.shields.io/crates/l/non-empty-iter
 [Version Badge]: https://img.shields.io/crates/v/non-empty-iter
 [Downloads Badge]: https://img.shields.io/crates/dr/non-empty-iter

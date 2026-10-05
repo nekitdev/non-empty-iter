@@ -12,6 +12,7 @@ pub mod non_empty;
 pub mod adapter;
 pub mod chain;
 pub mod cloned;
+pub mod consumed;
 pub mod copied;
 pub mod cycle;
 pub mod enumerate;
@@ -40,6 +41,8 @@ pub use adapter::NonEmptyAdapter;
 pub use chain::{Chain, chain};
 #[doc(inline)]
 pub use cloned::Cloned;
+#[doc(inline)]
+pub use consumed::Consumed;
 #[doc(inline)]
 pub use cycle::Cycle;
 #[doc(inline)]
